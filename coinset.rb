@@ -5,21 +5,21 @@
 class Coinset < Formula
   desc "CLI for accessing the Chia blockchain."
   homepage "https://www.coinset.org/"
-  version "0.0.1"
+  version "0.0.4"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/coinset-org/cli/releases/download/v0.0.1/coinset_Darwin_arm64.tar.gz"
-      sha256 "55193b260ec8da6ad82e9db4fec0fdd284a701dc394c13cd8f98ad91b1c71cbf"
+      url "https://github.com/coinset-org/cli/releases/download/v0.0.4/coinset_Darwin_arm64.tar.gz"
+      sha256 "677492546fffd22823a132d5d7a7f81eee0069547b755f75604b621ea33a2741"
 
       def install
         bin.install "coinset"
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/coinset-org/cli/releases/download/v0.0.1/coinset_Darwin_x86_64.tar.gz"
-      sha256 "8a24472d121dba16993f3b985049f3edf68a33852e92eba8c39fc21fe740486d"
+      url "https://github.com/coinset-org/cli/releases/download/v0.0.4/coinset_Darwin_x86_64.tar.gz"
+      sha256 "2ae9d213f69d2473d7537aec700cfcb3655ad4baa186c22416292eaebf9a6781"
 
       def install
         bin.install "coinset"
@@ -29,16 +29,16 @@ class Coinset < Formula
 
   on_linux do
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/coinset-org/cli/releases/download/v0.0.1/coinset_Linux_arm64.tar.gz"
-      sha256 "f84474ad789aa8d822c7c33bb84744ddc3592cc7ce3eb769739c3784954a64fd"
+      url "https://github.com/coinset-org/cli/releases/download/v0.0.4/coinset_Linux_arm64.tar.gz"
+      sha256 "9de6f0e17560c3f2f0b13d9f45dd261824956a42f6041082d3e52558faede981"
 
       def install
         bin.install "coinset"
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/coinset-org/cli/releases/download/v0.0.1/coinset_Linux_x86_64.tar.gz"
-      sha256 "4c3476bb930f7445fca543ba53354dfcdbbf8729bb0c3bf05bb7b92bb8cf14d9"
+      url "https://github.com/coinset-org/cli/releases/download/v0.0.4/coinset_Linux_x86_64.tar.gz"
+      sha256 "87c20724b0834ae592df4cad4a65b8b0f53e7fbede6f1a75eb508e1ecb4ddd3b"
 
       def install
         bin.install "coinset"
