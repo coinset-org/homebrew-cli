@@ -11,7 +11,7 @@ class Coinset < Formula
   on_macos do
     if Hardware::CPU.arm?
       url "https://github.com/coinset-org/cli/releases/download/v0.0.1/coinset_Darwin_arm64.tar.gz"
-      sha256 "c326f42aa5676c5ae5aa47e7bec1b82a32d7d85ca67e9e6112db437c9b6ce496"
+      sha256 "55193b260ec8da6ad82e9db4fec0fdd284a701dc394c13cd8f98ad91b1c71cbf"
 
       def install
         bin.install "coinset"
@@ -19,7 +19,7 @@ class Coinset < Formula
     end
     if Hardware::CPU.intel?
       url "https://github.com/coinset-org/cli/releases/download/v0.0.1/coinset_Darwin_x86_64.tar.gz"
-      sha256 "b7a8c275365175e5db915f08102d79ef1bfe64ad48533c270b7768193d47dfaa"
+      sha256 "8a24472d121dba16993f3b985049f3edf68a33852e92eba8c39fc21fe740486d"
 
       def install
         bin.install "coinset"
@@ -30,7 +30,7 @@ class Coinset < Formula
   on_linux do
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
       url "https://github.com/coinset-org/cli/releases/download/v0.0.1/coinset_Linux_arm64.tar.gz"
-      sha256 "3f1b75eea02c96002ae74e2d78d866828857a39598a630cf4cc8ed7c9993d748"
+      sha256 "f84474ad789aa8d822c7c33bb84744ddc3592cc7ce3eb769739c3784954a64fd"
 
       def install
         bin.install "coinset"
@@ -38,7 +38,7 @@ class Coinset < Formula
     end
     if Hardware::CPU.intel?
       url "https://github.com/coinset-org/cli/releases/download/v0.0.1/coinset_Linux_x86_64.tar.gz"
-      sha256 "231e860ead4e0836c8298476d0ec06dfc3295fbe652c0db1a3e3317e2cf2a901"
+      sha256 "4c3476bb930f7445fca543ba53354dfcdbbf8729bb0c3bf05bb7b92bb8cf14d9"
 
       def install
         bin.install "coinset"
