@@ -5,13 +5,13 @@
 class Coinset < Formula
   desc "CLI for accessing the Chia blockchain."
   homepage "https://www.coinset.org/"
-  version "0.0.6"
+  version "1.0.0"
   license "MIT"
 
   on_macos do
-    if Hardware::CPU.arm?
-      url "https://github.com/coinset-org/cli/releases/download/v0.0.6/coinset_Darwin_arm64.tar.gz"
-      sha256 "40e6499c66dee984a3ff5a5c5fe63edf7a605d6a5c74337b5920e1b892f90545"
+    if Hardware::CPU.intel?
+      url "https://github.com/coinset-org/cli/releases/download/v1.0.0/coinset_Darwin_x86_64.tar.gz"
+      sha256 "b1af77a5b4cf98b8016b339e175c302d51a60730135de21889b989ef4cbbf191"
 
       def install
         bin.install "coinset" => "coinset"
@@ -22,9 +22,9 @@ class Coinset < Formula
         prefix.install_metafiles
       end
     end
-    if Hardware::CPU.intel?
-      url "https://github.com/coinset-org/cli/releases/download/v0.0.6/coinset_Darwin_x86_64.tar.gz"
-      sha256 "5114c8679e370638101a6db00b53fa24d92c64edd2fedb942b46f37aa3f21ef3"
+    if Hardware::CPU.arm?
+      url "https://github.com/coinset-org/cli/releases/download/v1.0.0/coinset_Darwin_arm64.tar.gz"
+      sha256 "626584b2303d5efa2a05b974c421de1bf90a1503cf0536c8ac0c91cca9a44234"
 
       def install
         bin.install "coinset" => "coinset"
@@ -39,8 +39,8 @@ class Coinset < Formula
 
   on_linux do
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/coinset-org/cli/releases/download/v0.0.6/coinset_Linux_arm64.tar.gz"
-      sha256 "805e16fca46c4061557d66852a3d4a64da0f5b630664fc1f0e984eabc77f4be6"
+      url "https://github.com/coinset-org/cli/releases/download/v1.0.0/coinset_Linux_arm64.tar.gz"
+      sha256 "9b23ffabfc57fffb5f67c24177f63516908fe7f8640670a6b8b32035fd4f679a"
 
       def install
         bin.install "coinset" => "coinset"
@@ -52,8 +52,8 @@ class Coinset < Formula
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/coinset-org/cli/releases/download/v0.0.6/coinset_Linux_x86_64.tar.gz"
-      sha256 "2c669b295b9b2ac023aa23df0d32a7ee402c88f17ada858871e6c40612fe99e4"
+      url "https://github.com/coinset-org/cli/releases/download/v1.0.0/coinset_Linux_x86_64.tar.gz"
+      sha256 "1275080bef64108b5ad56c34cdfce4911b540ec6634bbd452ecf6aa2ecb6efec"
 
       def install
         bin.install "coinset" => "coinset"
