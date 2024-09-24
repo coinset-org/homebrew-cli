@@ -5,13 +5,13 @@
 class Coinset < Formula
   desc "CLI for accessing the Chia blockchain."
   homepage "https://www.coinset.org/"
-  version "1.0.2"
+  version "1.0.3"
   license "MIT"
 
   on_macos do
-    if Hardware::CPU.arm?
-      url "https://github.com/coinset-org/cli/releases/download/v1.0.2/coinset_Darwin_arm64.tar.gz"
-      sha256 "389c33ca32bcc8b6020ad615da46128fb66c9cb8e8208bca5081603847cdb4dc"
+    on_intel do
+      url "https://github.com/coinset-org/cli/releases/download/v1.0.3/coinset_Darwin_x86_64.tar.gz"
+      sha256 "5c055de4e84b48b71653f68a64cf40e4002ac3d423deef717710fad9ed63b551"
 
       def install
         bin.install "coinset" => "coinset"
@@ -22,9 +22,9 @@ class Coinset < Formula
         prefix.install_metafiles
       end
     end
-    if Hardware::CPU.intel?
-      url "https://github.com/coinset-org/cli/releases/download/v1.0.2/coinset_Darwin_x86_64.tar.gz"
-      sha256 "8649981450f0c7c15e820997f34d550e21042afb24f09697589a53eef435593d"
+    on_arm do
+      url "https://github.com/coinset-org/cli/releases/download/v1.0.3/coinset_Darwin_arm64.tar.gz"
+      sha256 "7d915ae39f8829a5050d29536c9e0d84537a3e4ef3c2918212374e37d55a6b22"
 
       def install
         bin.install "coinset" => "coinset"
@@ -38,30 +38,34 @@ class Coinset < Formula
   end
 
   on_linux do
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/coinset-org/cli/releases/download/v1.0.2/coinset_Linux_arm64.tar.gz"
-      sha256 "c2a6950036a9167d16fed9d406ca872ecd477ea0d3b27ee235cc44585d7ad2d5"
+    on_intel do
+      if Hardware::CPU.is_64_bit?
+        url "https://github.com/coinset-org/cli/releases/download/v1.0.3/coinset_Linux_x86_64.tar.gz"
+        sha256 "abc4410f9db3307bccc35ee7d1442caa785d718401715205017050d124c339c8"
 
-      def install
-        bin.install "coinset" => "coinset"
-        output = Utils.popen_read("SHELL=bash #{bin}/coinset completion bash")
-        (bash_completion/"coinset").write output
-        output = Utils.popen_read("SHELL=zsh #{bin}/coinset completion zsh")
-        (zsh_completion/"_coinset").write output
-        prefix.install_metafiles
+        def install
+          bin.install "coinset" => "coinset"
+          output = Utils.popen_read("SHELL=bash #{bin}/coinset completion bash")
+          (bash_completion/"coinset").write output
+          output = Utils.popen_read("SHELL=zsh #{bin}/coinset completion zsh")
+          (zsh_completion/"_coinset").write output
+          prefix.install_metafiles
+        end
       end
     end
-    if Hardware::CPU.intel?
-      url "https://github.com/coinset-org/cli/releases/download/v1.0.2/coinset_Linux_x86_64.tar.gz"
-      sha256 "91b273aece81d6b79e8c52413637e2af39b8cff5c127f54e97adff9f2bca5400"
+    on_arm do
+      if Hardware::CPU.is_64_bit?
+        url "https://github.com/coinset-org/cli/releases/download/v1.0.3/coinset_Linux_arm64.tar.gz"
+        sha256 "72264a318c2967696efe0109496c7af431a61859088a652492c7dc1e8b16fadb"
 
-      def install
-        bin.install "coinset" => "coinset"
-        output = Utils.popen_read("SHELL=bash #{bin}/coinset completion bash")
-        (bash_completion/"coinset").write output
-        output = Utils.popen_read("SHELL=zsh #{bin}/coinset completion zsh")
-        (zsh_completion/"_coinset").write output
-        prefix.install_metafiles
+        def install
+          bin.install "coinset" => "coinset"
+          output = Utils.popen_read("SHELL=bash #{bin}/coinset completion bash")
+          (bash_completion/"coinset").write output
+          output = Utils.popen_read("SHELL=zsh #{bin}/coinset completion zsh")
+          (zsh_completion/"_coinset").write output
+          prefix.install_metafiles
+        end
       end
     end
   end
